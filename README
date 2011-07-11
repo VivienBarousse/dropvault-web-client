@@ -1,0 +1,6 @@
+dropvault-web-client
+
+This project is part of dropvault.
+
+It is a web interface allowing users to access their file stored on dropvault
+using a simple web browser.
