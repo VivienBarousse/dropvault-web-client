@@ -8,4 +8,6 @@ DropvaultWebClient::Application.routes.draw do
 
   match 'login/login' => 'login#login', :via => :post, :as => :login
 
+  match 'logout/logout' => 'logout#logout', :as => :logout
+
 end

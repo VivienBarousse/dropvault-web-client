@@ -10,5 +10,13 @@
 
 <%= yield %>
 
+<div style="text-align: center">
+  <p>
+    <% if !session[:username].nil? %>
+      <%= link_to "Logout", logout_path %>
+    <% end %>
+  </p>
+</div>
+
 </body>
 </html>
