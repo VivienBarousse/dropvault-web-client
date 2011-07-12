@@ -4,6 +4,9 @@ require 'net/dav'
 class LoginController < ApplicationController
 
   def init
+    if (check_credentials(session[:username], session[:password]))
+      redirect_to view_path
+    end
   end
 
   def login
