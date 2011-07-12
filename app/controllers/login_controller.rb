@@ -11,8 +11,8 @@ class LoginController < ApplicationController
     uri = uri.merge(params[:username])
     dav = Net::DAV.new(uri.to_s)
     dav.credentials(params[:username], params[:password])
-    result = dav.propfind(uri.path) rescue nil
-    if result.nil?
+    result = dav.exists?(uri.path)
+    if !result
       redirect_to :back
     else
       session[:username] = params[:username]
