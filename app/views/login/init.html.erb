@@ -1,19 +1,18 @@
-<h1>Login to view your files</h1>
 <p>
   <%= form_tag(login_path, {:class => "login"}) do %>
     <table>
       <tr>
-        <td><%= label_tag(:username, "Username") %></td>
-        <td><%= text_field_tag(:username) %></td>
+        <td><%= text_field_tag(:username, "Username", {:onfocus => "select_all_text(this)"}) %></td>
       </tr>
       <tr>
-        <td><%= label_tag(:password, "Password") %></td>
-        <td><%= password_field_tag(:password) %></td>
+        <td><%= password_field_tag(:password, "Password", {:onfocus => "select_all_text(this)"}) %></td>
       </tr>
       <tr>
-        <td></td>
         <td><%= submit_tag("Login") %></td>
       </tr>
     </table>
   <% end %>
 </p>
+<script>
+give_focus('username');
+</script>
