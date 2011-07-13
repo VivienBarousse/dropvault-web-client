@@ -2,6 +2,13 @@
 <h2>Files</h2>
 <p>
   <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Creation date</th>
+      <th>Last modification</th>
+    </tr>
+  </thead>
   <% if (params[:path] != '.') %>
     <tr>
       <td><%= link_to "..", :path => params[:path] + "/.." %></td>
