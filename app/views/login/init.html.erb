@@ -1,6 +1,6 @@
 <h1>Login to view your files</h1>
 <p>
-  <%= form_tag(login_path) do %>
+  <%= form_tag(login_path, {:class => "login"}) do %>
     <table>
       <tr>
         <td><%= label_tag(:username, "Username") %></td>
