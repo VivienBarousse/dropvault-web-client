@@ -1,0 +1,2 @@
+common:
+  webdav_endpoint: http://thom.aperigeek.com:8080/dropvault/rs/dav/
