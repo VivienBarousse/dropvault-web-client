@@ -6,7 +6,7 @@ class ViewController < ApplicationController
   before_filter :ensure_login
 
   def get
-      baseUri = URI.parse("http://thom.aperigeek.com:8080/dropvault/rs/dav/")
+      baseUri = URI.parse(webdav_endpoint)
       baseUri = baseUri.merge(session[:username] + "/")
       path = params[:path]
       dav = Net::DAV.new(baseUri.to_s)

@@ -23,7 +23,7 @@ class LoginController < ApplicationController
     if (username.nil? || password.nil?)
       return false
     end
-    uri = URI.parse("http://thom.aperigeek.com:8080/dropvault/rs/dav/")
+    uri = URI.parse(webdav_endpoint)
     uri = uri.merge(username)
     dav = Net::DAV.new(uri.to_s)
     dav.credentials(username, password)
