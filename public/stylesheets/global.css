@@ -1,3 +1,8 @@
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+}
+
 form.login table {
   margin: auto;
   text-align: center;
