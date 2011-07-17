@@ -3,6 +3,8 @@ require 'dropdav/dropdav'
 
 class SearchController < ApplicationController
 
+  before_filter :ensure_login
+
   def search
     searchUrl = "http://dav.dropvault.aperigeek.com/rs/query/"
     uri = URI.parse(searchUrl)
