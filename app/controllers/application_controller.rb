@@ -1,3 +1,5 @@
+require 'dropdav/dropdav'
+
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
@@ -13,6 +15,12 @@ class ApplicationController < ActionController::Base
 
   def webdav_endpoint
     conf['webdav_endpoint']
+  end
+
+  def dav_item(path)
+    dav = DropDAV::DropDAV.new(webdav_endpoint + session[:username] + "/")
+    dav.credentials(session[:username], session[:password])
+    dav.item(path)
   end
 
 end
