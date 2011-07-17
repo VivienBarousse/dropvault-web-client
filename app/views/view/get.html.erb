@@ -1,3 +1,11 @@
+<div class="search">
+  <p>
+    <%= form_tag(search_path, {:method => "get"}) do %>
+      <%= text_field_tag(:query) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </p>
+</div>
 <h1>Content of folder <%= params[:path] %></h1>
 <h2>Files</h2>
 <p>
