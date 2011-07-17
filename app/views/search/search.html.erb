@@ -15,7 +15,7 @@
          name += "/"
        end %>
     <tr>
-      <td><%= link_to name, (view_path :path => item.path) %></td>
+      <td><%= link_to name, (viewpath_path :path => item.path) %></td>
       <td><%= item.properties.creationdate.to_s %></td>
       <td><%= item.properties.lastmodificationdate.to_s %></td>
     </tr>
