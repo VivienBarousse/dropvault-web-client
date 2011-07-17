@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  def ensure_login
+    username = session[:username] rescue nil
+    if username.nil?
+      redirect_to login_init_path
+    end
+  end
+
   def conf
     if @conf.nil?
       cpath = "#{Rails.root}/config/dropvault.yml"
