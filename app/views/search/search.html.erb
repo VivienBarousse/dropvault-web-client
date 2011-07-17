@@ -1,0 +1,24 @@
+<h1>Search results for '<%= params[:query] %>'</h1>
+<h2>Files</h2>
+<p>
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Creation date</th>
+      <th>Last modification</th>
+    </tr>
+  </thead>
+  <% @results.each do |item| %>
+    <% name = item.properties.displayname %>
+    <% if (item.type == :directory)
+         name += "/"
+       end %>
+    <tr>
+      <td><%= link_to name, (view_path :path => item.path) %></td>
+      <td><%= item.properties.creationdate.to_s %></td>
+      <td><%= item.properties.lastmodificationdate.to_s %></td>
+    </tr>
+  <% end %>
+  </table>
+</p>
