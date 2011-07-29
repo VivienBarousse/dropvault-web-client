@@ -8,11 +8,16 @@ class SearchController < ApplicationController
   def search
     searchUrl = "http://dav.dropvault.aperigeek.com/rs/query/"
     uri = URI.parse(searchUrl)
-    uri = uri.merge(session[:username] + "/")
-    uri = uri.merge(params[:query])
+
+    puts CGI::escape params[:query]
+
+    req = Net::HTTP::Get.new(uri.path + "?q=" + CGI::escape(params[:query]))
+    req.basic_auth session[:username], session[:password]
+
     res = Net::HTTP.start(uri.host, uri.port) do |http|
-      http.get(uri.path + "?password=" + session[:password])
+      http.request(req)
     end
+
     res = JSON.parse res.body
     @results = []
     res.each do |result|
