@@ -1,0 +1,36 @@
+<%
+
+if (!defined? show_parent)
+  if ((!defined? path) || path == "." || path == "/")
+    show_parent = false
+  else
+    show_parent = true
+  end
+end
+
+%>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Creation date</th>
+      <th>Last modification</th>
+    </tr>
+  </thead>
+  <% if (show_parent) %>
+    <tr>
+      <td><%= link_to "..", :path => path + "/.." %></td>
+      <td></td>
+      <td></td>
+    </tr>
+  <% end %>
+  <% @items.each do |item| %>
+    <% name = item.properties.displayname %>
+    <tr>
+      <td><%= link_to name, :path => item.path %></td>
+      <td><%= item.properties.creationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
+      <td><%= item.properties.lastmodificationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
+    </tr>
+  <% end %>
+</table>

@@ -25,6 +25,13 @@ class ViewController < ApplicationController
 
       @items = []
       dav.find(path) do |item|
+        def item.path
+          @path
+        end
+        def item.path=(p)
+          @path = p
+        end
+        item.path = path + "/" + item.properties.displayname
         @items << item
       end
       if (currentType == :file)

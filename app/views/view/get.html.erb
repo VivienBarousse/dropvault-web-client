@@ -9,31 +9,5 @@
 <h1>Content of folder <%= params[:path] %></h1>
 <h2>Files</h2>
 <p>
-  <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Creation date</th>
-      <th>Last modification</th>
-    </tr>
-  </thead>
-  <% if (params[:path] != '.') %>
-    <tr>
-      <td><%= link_to "..", :path => params[:path] + "/.." %></td>
-      <td></td>
-      <td></td>
-    </tr>
-  <% end %>
-  <% @items.each do |item| %>
-    <% name = item.properties.displayname %>
-    <% if (item.type == :directory)
-         name += "/"
-       end %>
-    <tr>
-      <td><%= link_to name, :path => params[:path] + "/" + name %></td>
-      <td><%= item.properties.creationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
-      <td><%= item.properties.lastmodificationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
-    </tr>
-  <% end %>
-  </table>
+  <%= render :partial => "resources", :locals => {:items => @items, :path => params[:path]}  %>
 </p>
