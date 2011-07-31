@@ -25,10 +25,10 @@ end
       <td></td>
     </tr>
   <% end %>
-  <% @items.each do |item| %>
+  <% items.each do |item| %>
     <% name = item.properties.displayname %>
     <tr>
-      <td><%= link_to name, :path => item.path %></td>
+      <td><%= link_to name, viewpath_path({:path => item.path}) %></td>
       <td><%= item.properties.creationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
       <td><%= item.properties.lastmodificationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
     </tr>
