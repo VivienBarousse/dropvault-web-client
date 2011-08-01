@@ -9,8 +9,6 @@ class SearchController < ApplicationController
     searchUrl = "http://dav.dropvault.aperigeek.com/rs/query/"
     uri = URI.parse(searchUrl)
 
-    puts CGI::escape params[:query]
-
     req = Net::HTTP::Get.new(uri.path + "?q=" + CGI::escape(params[:query]))
     req.basic_auth session[:username], session[:password]
 
