@@ -6,8 +6,7 @@ class SearchController < ApplicationController
   before_filter :ensure_login
 
   def search
-    searchUrl = "http://dav.dropvault.aperigeek.com/rs/query/"
-    uri = URI.parse(searchUrl)
+    uri = URI.parse(search_endpoint)
 
     req = Net::HTTP::Get.new(uri.path + "?q=" + CGI::escape(params[:query]))
     req.basic_auth session[:username], session[:password]

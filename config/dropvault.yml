@@ -1,2 +1,3 @@
 common:
   webdav_endpoint: http://dav.dropvault.aperigeek.com/rs/dav/
+  search_endpoint: http://dav.dropvault.aperigeek.com/rs/query

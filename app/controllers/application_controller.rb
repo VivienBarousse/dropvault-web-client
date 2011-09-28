@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
     conf['webdav_endpoint']
   end
 
+  def search_endpoint
+    conf['search_endpoint']
+  end
+
   def dav_item(path)
     dav = DropDAV::DropDAV.new(webdav_endpoint + session[:username] + "/")
     dav.credentials(session[:username], session[:password])
