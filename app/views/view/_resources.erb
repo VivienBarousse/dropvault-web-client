@@ -14,6 +14,7 @@ end
   <thead>
     <tr>
       <th>Name</th>
+      <th>Size</th>
       <th>Creation date</th>
       <th>Last modification</th>
     </tr>
@@ -23,12 +24,14 @@ end
       <td><%= link_to "..", :path => path + "/.." %></td>
       <td></td>
       <td></td>
+      <td></td>
     </tr>
   <% end %>
   <% items.each do |item| %>
     <% name = item.properties.displayname %>
     <tr>
       <td><%= link_to name, viewpath_path({:path => item.path}) %></td>
+      <td><%= item.properties.contentlength %>b</td>
       <td><%= item.properties.creationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
       <td><%= item.properties.lastmodificationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
     </tr>
