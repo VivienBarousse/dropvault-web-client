@@ -33,7 +33,7 @@ end
       <td><%= link_to name, viewpath_path({:path => item.path}) %></td>
       <td class="right">
         <% if item.properties.contentlength != "" %>
-          <%= item.properties.contentlength + "b" %>
+          <%= to_human_size item.properties.contentlength.to_i %>
         <% end %>
       </td>
       <td><%= item.properties.creationdate.utc.strftime("%m/%d/%Y %H:%M %Z") %></td>
