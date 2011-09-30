@@ -10,7 +10,7 @@ module ApplicationHelper
         size /= 1024
       end
     end
-    size.to_s + " " + final_unit
+    sprintf("%.1f %s", size, final_unit)
   end
 
 end
