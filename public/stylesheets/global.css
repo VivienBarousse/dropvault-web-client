@@ -11,3 +11,7 @@ form.login table {
 .search {
   float: right;
 }
+
+.right {
+  text-align: right;
+}
